@@ -4,13 +4,10 @@ require 'optparse'
 
 def server_cmd(cmd)
   unload = 1
-  case cmd
-  when 'start'
-    puts "Starting server...\n"
+  if cmd == 'start'
     unload = 0 
-  else
-    puts "Stopping server...\n"
   end
+  puts "#{unload == 0 ? 'Starting' : 'Stopping'} server...\n"
   `sudo launchctl #{unload == 0 ? 'load' : 'unload'} -F /Library/LaunchDaemons/org.serviio.server.plist 2>&1`
 end
 
