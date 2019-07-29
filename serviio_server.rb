@@ -3,12 +3,12 @@
 require 'optparse'
 
 def server_cmd(cmd)
-  unload = 1
+  verb = 'unload'
   if cmd == 'start'
-    unload = 0 
+    verb = 'load'
   end
-  puts "#{unload == 0 ? 'Starting' : 'Stopping'} server...\n"
-  `sudo launchctl #{unload == 0 ? 'load' : 'unload'} -F /Library/LaunchDaemons/org.serviio.server.plist 2>&1`
+  puts "#{verb.capitalize}ing server...\n"
+  `sudo launchctl #{verb} -F /Library/LaunchDaemons/org.serviio.server.plist 2>&1`
 end
 
 options = {}
