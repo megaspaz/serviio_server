@@ -17,7 +17,7 @@ optparse = OptionParser.new do |opts|
   opts.banner = "Usage: ./serviio_server.rb [-e | --exec start|stop|restart]"
 
   options[:cmd] = nil
-  opts.on( '-e', '--exec EXEC', 'start, stop, or restart' ) do |cmd|
+  opts.on('-e', '--exec EXEC', 'start, stop, or restart') do |cmd|
     options[:cmd] = cmd.chomp
   end
 end
